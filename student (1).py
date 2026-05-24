@@ -13,6 +13,21 @@ class Student(Person):
 
         # is_late: True if the student arrived after 8.0 (8h00)
         self.is_late = entry_time > 8.0
+        # Part 3 - Magic Method __str__
+    def __str__(self):
+        return (f"Student: {self.first_name} {self.last_name} | "
+                f"ID: {self.student_id} | "
+                f"Department: {self.field_of_study} | "
+                f"Entry: {self.entry_time}h | "
+                f"Late: {'Yes' if self.is_late else 'No'}")
+
+    # Part 4 - Decorator @staticmethod
+    @staticmethod
+    def check_late(entry_time, class_start=8.0):
+        minutes_late = (entry_time - class_start) * 60
+        if minutes_late <= 0:
+            return "On time"
+        return f"Late by {minutes_late:.0f} minutes"
 
 # Test
 student1 = Student("SOME", "Mounira", 102, "Computer Science", 8.5, 12.0)
