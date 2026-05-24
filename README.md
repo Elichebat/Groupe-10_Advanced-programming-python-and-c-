@@ -1,69 +1,67 @@
-# 🎓 Gestion des autorisations des étudiants
+# 🎓 Student Authorization Management System
 
-## 📌 Présentation du projet
-Ce projet a été réalisé dans le cadre du cours d’Advanced Programming.
+## 📌 Project Overview
+This project was developed as part of the Advanced Programming course.
 
-L’objectif est de créer un système permettant de gérer les autorisations des étudiants, notamment :
-- les retards (entrée tardive)
-- les sorties pendant les cours
+The goal is to manage student authorizations, including:
+- late arrivals (entry authorization)
+- temporary exits during class
 
-Le programme permet également de générer automatiquement une autorisation et d’informer le professeur par email.
-
----
-
-## 🧱 Organisation du projet
-
-Le projet est divisé en plusieurs fichiers :
-
-### 🔹 person.py
-Ce fichier contient la classe **Person**, qui représente une personne avec :
-- son nom
-- son prénom
-- son identifiant
-
-C’est une classe de base utilisée pour construire d’autres objets.
+The system automatically generates authorizations and sends an email notification to the professor.
 
 ---
 
-### 🔹 student.py
-Ce fichier contient la classe **Student**, qui hérite de `Person`.
+## 🧱 Project Structure
 
-Elle permet de gérer :
-- la filière de l’étudiant
-- l’heure d’entrée et de sortie
-- la détection du retard
+### 📄 person.py
+This file contains the `Person` class, which represents a basic person with:
+- last name
+- first name
+- student ID
 
-Une méthode permet aussi de vérifier si un étudiant est en retard et de combien de minutes.
-
----
-
-### 🔹 bit_gestion.py
-C’est le fichier principal du projet.
-
-Il permet :
-- de vérifier l’accès administrateur (mot de passe)
-- de choisir le type d’autorisation (entrée ou sortie)
-- de saisir les informations de l’étudiant
-- de calculer le retard ou la durée d’absence
-- d’afficher une autorisation claire
-- d’envoyer un email au professeur
+It serves as the base class for other components.
 
 ---
 
-## ⚙️ Fonctionnement
+### 📄 student.py
+This file defines the `Student` class, which inherits from `Person`.
 
-1. L’administrateur entre le mot de passe  
-2. Il choisit le type d’autorisation  
-3. Il saisit les informations de l’étudiant  
-4. Le programme effectue les calculs automatiquement  
-5. Une autorisation est affichée et un email peut être envoyé  
+It includes:
+- field of study
+- entry time
+- exit time
+- automatic detection of lateness
+
+It also includes:
+- `__str__` method for formatted display
+- `check_late()` static method to calculate delay
 
 ---
 
-## ▶️ Exécution du programme
+### 📄 bit_gestion.py
+This is the main program file.
 
-Dans le terminal :
+It handles:
+- admin authentication
+- selection of authorization type (entry/exit)
+- student data input
+- automatic calculations (delay, duration, percentage missed)
+- generation of authorization output
+- email sending to professors
+
+---
+
+## ⚙️ How it works
+
+1. Admin logs in using password  
+2. Select authorization type  
+3. Enter student information  
+4. System calculates everything automatically  
+5. Authorization is displayed and email is sent  
+
+---
+
+## ▶️ How to run the program
 
 ```bash
-python bit_gestion.py# Groupe-10_Advanced-programming-python-and-c-
-
+python bit_gestion.py
