@@ -1,5 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
+from person import Person
+from student import Student
 
 PASSWORD = "bit2026"
 CLASS_START_TIME = 8.0
@@ -142,7 +144,15 @@ Please allow them to enter the classroom.
 
 Best regards,
 BIT Administration"""
+# Create Student object and display - Parts 2, 3, 4
+if choice == 2:
+    student = Student(last_name, first_name, student_id, department, entry_time, 0.0)
+else:
+    student = Student(last_name, first_name, student_id, department, 0.0, exit_time)
 
+print("\n--- Student Object ---")
+print(student)
+print(Student.check_late(entry_time if choice == 2 else 0.0))
 # -- SEND EMAIL --
 print(f"\nSending email to {prof_email}...")
 try:
